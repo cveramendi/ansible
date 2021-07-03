@@ -9,7 +9,7 @@ http.createServer(function (request, response) {
 
    // Send the response body as "Hello World"
    //response.end('Hello World - CHANGED BY ANSIBLE PLAYBOOK\n')
-   response.end('Hello World - CHANGED BY ANSIBLE PULL v2\n')
+   response.end('Hello World - CHANGED BY ANSIBLE PULL v3\n')
 }).listen(3000)
 
 // Console will print the message
