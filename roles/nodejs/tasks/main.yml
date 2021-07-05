@@ -1,10 +1,18 @@
 ---
 # tasks file for nodejs
-- name: Installing node and npm
+#- name: Installing node and npm
+#  yum:
+#    name: "{{ item }}"
+#    enablerepo: epel
+#    state: installed
+#  with_items:
+#    - nodejs
+#    - npm
+
+- name: Setup Node.js v16.x for installation
+  shell: curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -
+
+- name: Install specific supported version of JAVA
   yum:
-    name: "{{ item }}"
-    enablerepo: epel
-    state: installed
-  with_items:
-    - nodejs
-    - npm
+    name: nodejs
+    state: present
