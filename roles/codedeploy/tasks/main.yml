@@ -1,5 +1,30 @@
 ---
 # tasks file for codedeploy
-- name: Installs and starts the AWS CodeDeploy Agent
-  aws_codedeploy:
+- name: Upgrade all packages
+  yum:
+    name: "*"
+    state: latest
+
+- name: Install python35
+  yum:
+    name: python35
+    state: present
+
+- name: Install ruby
+  yum:
+    name: ruby
+    state: present
+
+- name: Install wget
+  yum:
+    name: wget
+    state: present
+
+- name: Install CodeDeploy Agent shell
+  shell: installAgent.sh > agentInstallLog.txt
+
+- name: Start CodeDeploy Agent
+  service:
+    name: codedeploy-agent
     enabled: true
+    state: started
