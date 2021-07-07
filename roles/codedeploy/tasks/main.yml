@@ -20,11 +20,17 @@
     name: wget
     state: present
 
-- name: Config installAgent.sh
-  shell: chmod +x installAgent.sh
+# tasks file for helloworld
+- name: Copying the installAgent.sh file
+  copy:
+    src: installAgent.sh
+    dest: /home/ec2-user/
+    owner: ec2-user
+    group: ec2-user
+    mode: 0644
 
 - name: Install CodeDeploy Agent shell
-  shell: installAgent.sh > agentInstallLog.txt
+  shell: /home/ec2-user/installAgent.sh > /home/ec2-user/agentInstallLog.txt
 
 - name: Start CodeDeploy Agent
   service:
