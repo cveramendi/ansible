@@ -30,7 +30,7 @@
     mode: 755
 
 - name: Install CodeDeploy Agent shell
-  shell: /home/ec2-user/installAgent.sh > /home/ec2-user/agentInstallLog.txt
+  shell: /home/ec2-user/installAgent.sh
 
 - name: Start CodeDeploy Agent
   service:
