@@ -21,7 +21,7 @@
     state: present
 
 - name: Config installAgent.sh
-  shell: chmod +x ./installAgent.sh
+  shell: chmod +x installAgent.sh
 
 - name: Install CodeDeploy Agent shell
   shell: installAgent.sh > agentInstallLog.txt
